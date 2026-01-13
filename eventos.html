@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Periplo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">PERIPLO</a>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="manifiesto.html" class="nav-link">Manifiesto</a></li>
+                        <li><a href="eventos.html" class="nav-link active">Eventos</a></li>
+                        <li class="nav-item-dropdown">
+                            <a href="#" class="nav-link">Áreas</a>
+                            <ul class="dropdown">
+                                <li><a href="area-economia.html">Economía y vivienda</a></li>
+                                <li><a href="area-estado.html">Estado y administración</a></li>
+                                <li><a href="area-vida.html">Vida y dignidad</a></li>
+                                <li><a href="area-cultura.html">Cultura</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 80px 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Eventos</h1>
+                <p class="hero-subtitle">Encuentros, debates y acciones concretas para transformar la realidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos List -->
+    <section class="eventos-section">
+        <div class="container">
+            <div class="eventos-list">
+                <!-- Evento 1 -->
+                <div class="evento-card">
+                    <div class="evento-card-image">
+                        <img src="images/cartel-evento.jpg" alt="Primer encuentro Periplo">
+                    </div>
+                    <div class="evento-card-content">
+                        <h3>Primer encuentro Periplo</h3>
+                        <div class="evento-card-meta">
+                            <p><strong>Fecha:</strong> Jueves 22 de enero de 2025</p>
+                            <p><strong>Hora:</strong> 20:30</p>
+                            <p><strong>Lugar:</strong> Doña Carmela (Castellana 143, Madrid)</p>
+                        </div>
+                        <p class="evento-card-desc">Más principios. Menos ruido. Soluciones reales para la primera generación que vive peor que sus padres. Que piensa el futuro sin complejos.</p>
+                        <p class="evento-card-desc"><strong>Más información muy pronto</strong></p>
+                    </div>
+                </div>
+
+                <!-- Mensaje próximos eventos -->
+                <div class="proximos-eventos-mensaje" style="text-align: center; padding: 60px 0;">
+                    <h3 style="font-size: 24px; margin-bottom: 15px;">Próximamente más eventos</h3>
+                    <p style="font-size: 16px; color: var(--gris-medio);">Estamos preparando más encuentros y actividades. Mantente informado uniéndote a nuestra comunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="section-title">Únete a la comunidad</h2>
+            <p class="cta-text">Sé el primero en enterarte de nuestros próximos eventos y actividades.</p>
+            <a href="index.html#contacto" class="btn btn-primary btn-large" style="max-width: 300px; margin: 40px auto 0; display: block;">Únete</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p><a href="mailto:somosperiplo@gmail.com" class="footer-email">somosperiplo@gmail.com</a></p>
+                <p>&copy; 2026 Periplo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
