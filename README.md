@@ -8,7 +8,7 @@ Esta es tu web completa de Periplo, diseñada con estilo minimalista blanco y ne
 - `manifiesto.html` - Página del manifiesto completo
 - `eventos.html` - Página de eventos
 - `area-economia.html` - Área: Economía y vivienda
-- `area-estado.html` - Área: Estado y administración
+- `area-estado.html` - Área: Estado y Administración pública
 - `area-vida.html` - Área: Vida y dignidad
 - `area-cultura.html` - Área: Cultura
 - `style.css` - Estilos (minimalista blanco y negro)
