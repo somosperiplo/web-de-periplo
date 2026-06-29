@@ -25,72 +25,75 @@
     .dropdown-menu a:hover { background: #f5f5f5; text-decoration: none; }
     .nav-active { font-weight: bold; }
 
+    @media (max-width: 700px) {
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid #e0e0e0; flex-direction: column; gap: 0; padding: 0; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid #f0f0f0; }
+      .nav-links li a { display: block; padding: 0.75rem 1.5rem; }
+      .nav-dropdown > a::after { content: ''; }
+      .dropdown-menu { display: block; position: static; border: none; box-shadow: none; background: #f9f9f9; }
+      .dropdown-menu a { padding-left: 2.5rem; }
+    }
+
     /* HERO */
     .hero { padding: 3.5rem 2rem 1.5rem; max-width: 820px; margin: 0 auto; border-bottom: 2px solid #1a1a1a; }
     .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: 0.6rem; }
     .hero p { color: #555; font-size: 1rem; }
 
-    /* FILTER BAR */
-    .filter-bar { max-width: 820px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn { background: none; border: 1px solid #ddd; padding: 0.3rem 0.9rem; font-size: 0.82rem; cursor: pointer; font-family: inherit; color: #555; transition: all 0.15s; }
-    .filter-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
-    .filter-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    /* FILTER TABS */
+    .filter-bar { max-width: 820px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 0; border-bottom: 1px solid #e0e0e0; }
+    .filter-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 0.9rem 1.2rem; font-family: Georgia, serif; font-size: 0.85rem; cursor: pointer; color: #888; margin-bottom: -1px; }
+    .filter-btn.active { color: #1a1a1a; border-bottom: 2px solid #1a1a1a; font-weight: bold; }
+    .filter-btn:hover { color: #1a1a1a; }
 
     /* ARTICLES */
-    .articles-list { max-width: 820px; margin: 0 auto; padding: 0 2rem 3rem; }
-    .article-card { border-top: 1px solid #e0e0e0; padding: 2rem 0; }
-    .article-card:first-child { border-top: none; }
-    .article-area { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 0.4rem; }
-    .article-card h2 { font-size: clamp(1.1rem, 3vw, 1.35rem); margin-bottom: 1rem; line-height: 1.3; }
-    .article-excerpt { color: #444; font-size: 0.95rem; margin-bottom: 1rem; }
-    .article-body { display: none; }
-    .article-body p { margin-bottom: 1rem; color: #333; font-size: 0.97rem; }
+    .articles { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
 
-    .article-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
-    .read-more-btn { background: none; border: none; font-family: inherit; font-size: 0.85rem; color: #1a1a1a; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
-    .read-more-btn:hover { color: #555; }
+    .article { padding: 3rem 0; border-bottom: 1px solid #e0e0e0; }
+    .article:last-child { border-bottom: none; }
 
-    /* SHARE */
-    .share-bar { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
-    .share-label { font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; }
-    .share-btn { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.7rem; border: 1px solid #ddd; font-size: 0.78rem; font-family: inherit; cursor: pointer; background: #fff; color: #555; transition: all 0.15s; text-decoration: none; white-space: nowrap; }
-    .share-btn:hover { border-color: #1a1a1a; color: #1a1a1a; text-decoration: none; }
-    .share-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-    .share-btn.copied { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    .article-area { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 0.6rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+    .article h2 { font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem; line-height: 1.3; }
+
+    .article-body { font-size: 0.95rem; color: #333; line-height: 1.8; text-align: justify; hyphens: auto; }
+    .article-body p { margin-bottom: 0.9em; }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    .article-expand { display: none; }
+    .article-expand.open { display: block; }
+
+    .article-author { margin-top: 1.2rem; font-size: 0.82rem; color: #888; font-style: italic; }
+
+    .article-footer { margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+    .btn-leer { font-size: 0.85rem; font-family: Georgia, serif; background: none; border: none; cursor: pointer; color: #1a1a1a; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
+    .share-group { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .share-label { font-size: 0.8rem; color: #888; font-family: 'Helvetica Neue', Arial, sans-serif; }
+    .share-group a, .copy-btn {
+      font-size: 0.78rem; color: #555; text-decoration: none;
+      border: 1px solid #ddd; padding: 3px 9px; font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: none; cursor: pointer; font-size: 0.78rem;
+    }
+    .share-group a:hover, .copy-btn:hover { background: #f5f5f5; text-decoration: none; color: #1a1a1a; }
 
     /* FOOTER */
-    footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #aaa; border-top: 1px solid #e0e0e0; }
-
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .nav-toggle { display: flex; }
-      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 2px solid #e0e0e0; flex-direction: column; gap: 0; align-items: stretch; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-      .nav-links.open { display: flex; }
-      .nav-links li { border-bottom: 1px solid #f0f0f0; }
-      .nav-links li a { display: block; padding: 0.9rem 1.5rem; }
-      .dropdown-menu { display: none; position: static; border: none; border-top: 1px solid #f0f0f0; background: #fafafa; box-shadow: none; min-width: unset; }
-      .nav-dropdown.open .dropdown-menu { display: block; }
-      .dropdown-menu a { padding-left: 2.5rem; }
-      .hero { padding: 2rem 1.2rem 1.2rem; }
-      .filter-bar { padding: 1rem 1.2rem; }
-      .articles-list { padding: 0 1.2rem 2rem; }
-      .article-actions { flex-direction: column; align-items: flex-start; }
-    }
+    footer { text-align: center; padding: 2.5rem 2rem; border-top: 1px solid #e0e0e0; font-size: 0.82rem; color: #888; margin-top: 2rem; }
+    footer a { color: #1a1a1a; }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="https://periplo.es/index.html" class="nav-logo">PERIPLO</a>
-  <button class="nav-toggle" onclick="toggleNav()" aria-label="Menú">
+  <a class="nav-logo" href="https://periplo.es/index.html">PERIPLO</a>
+  <button class="nav-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menú">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="https://periplo.es/index.html">Inicio</a></li>
     <li><a href="https://periplo.es/manifiesto.html">Manifiesto</a></li>
     <li><a href="https://periplo.es/eventos.html">Eventos</a></li>
-    <li class="nav-dropdown" id="areas-dropdown">
-      <a href="#" onclick="toggleDropdown('areas-dropdown', event)">Áreas</a>
+    <li class="nav-dropdown">
+      <a href="#">Áreas</a>
       <div class="dropdown-menu">
         <a href="https://periplo.es/area-economia.html">Economía y vivienda</a>
         <a href="https://periplo.es/area-estado.html">Estado y administración</a>
@@ -109,106 +112,112 @@
 </div>
 
 <div class="filter-bar">
-  <button class="filter-btn active" onclick="filterArticles('todos', this)">Todos</button>
-  <button class="filter-btn" onclick="filterArticles('estado', this)">Estado y administración</button>
+  <button class="filter-btn active" onclick="filtrar('todos', this)">Todos</button>
+  <button class="filter-btn" onclick="filtrar('estado', this)">Estado y administración</button>
 </div>
 
-<div class="articles-list" id="articles-list">
+<div class="articles">
 
-  <div class="article-card" data-area="estado">
+  <!-- ARTÍCULO 1: PRTR (NUEVO, PRIMERO) -->
+  <article class="article" data-cat="estado">
     <div class="article-area">Estado y administración</div>
-    <h2>"Los funcionarios son unos vagos"</h2>
-
-    <div class="article-excerpt">
-      <p>La "burofobia" y la desconfianza hacia la función pública es una amenaza creciente que solo puede ser enfrentada si nos atrevemos a contrarrestar sus argumentos desde los hechos y la adopción de medidas concretas.</p>
-    </div>
-
-    <div class="article-body" id="body-1">
-      <p>El objetivo de "lo público" debe ser la orientación al bien común. La función pública desempeña un papel crucial como contrapeso técnico frente a la discrecionalidad política. Los políticos fijan las prioridades y orientaciones —les exigimos que tomen decisiones y se responsabilicen de ellas, al menos en teoría— pero son los empleados públicos quienes aseguran la correcta ejecución de las políticas públicas, conforme a la legalidad vigente y con criterios de eficiencia. Esta dualidad, con sus inherentes tensiones, constituye una de las garantías de nuestro modelo de función pública: combinar legitimidad democrática con rigor técnico.</p>
-      <p>La estabilidad en el empleo público es su garantía de independencia, no un privilegio. La profesionalización de los empleados públicos y la captación de talento es por ello crucial. Que las personas con mejores aptitudes y destrezas en sus respectivos campos decidan destinar su vida laboral a la cosa pública es algo que debería enorgullecernos como sociedad.</p>
-      <p>Es por ello que resulta especialmente hiriente la consolidación de un relato profundamente simplificador e injusto sobre los funcionarios públicos. Se les ha presentado de manera generalizada como trabajadores acomodados, privilegiados, poco productivos o ajenos a una verdadera exigencia profesional. Estos discursos ignoran la diversidad de las funciones desempeñadas por los empleados públicos. Médicos, jueces, policías, técnicos o administrativos, la función pública engloba un conjunto de perfiles cuya contribución resulta esencial. Reducir esta realidad a una caricatura de ineficiencia y apatía supone desconocer el esfuerzo diario de miles de profesionales que trabajan en muchas ocasiones bajo gran presión y con recursos cada vez más limitados.</p>
-      <p>Pero sin duda lo más amenazante es el peligro que supone para la propia calidad de la función pública la consolidación de estos relatos. Cuando se transmite la idea de que el empleo público es sinónimo de comodidad y falta de exigencia, se produce una distorsión de las motivaciones de quienes aspiran a él. En lugar de atraer a personas con verdadera vocación de servicio, preparación técnica y ambición profesional, corremos el riesgo de captar perfiles que buscan "tranquilidad" sin asumir plenamente las responsabilidades que les son propias.</p>
-      <p>Esta "deslegitimación social" de la función pública dificulta enormemente la captación de talento. En un entorno laboral privado cada vez más competitivo, el sector público no puede permitirse proyectar una imagen de mediocridad. La Administración necesita atraer a los mejores perfiles, especialmente en ámbitos estratégicos como la digitalización, la planificación urbana, o la innovación social. Para ello es imprescindible reivindicar el valor y la exigencia en la función pública.</p>
-      <p>Esto nos obliga también a una reflexión interna sobre los propios mecanismos de funcionamiento del Sector Público. La evaluación del desempeño se erige en este plano como una herramienta fundamental. Ya es obligatoria la evaluación anual del desempeño de los empleados públicos, pero su aplicación ha sido desigual, por no decir en muchos casos inexistente. Evaluar no es sancionar, sino gestionar de manera responsable los recursos humanos, identificar buenas prácticas y corregir ineficiencias.</p>
-      <p>Es necesaria una visión integral del problema: si hay alguien que no hace eficazmente su trabajo, no es sólo su responsabilidad sino también de su superior, al no realizar un correcto seguimiento del personal de su servicio y no adoptar las medidas necesarias para corregir la situación. De esta forma, los mandos intermedios desempeñan un papel clave. Son ellos quienes, por su proximidad a los equipos de trabajo y su conocimiento amplio sobre los procesos administrativos, pueden realizar una evaluación más ajustada y continua del desempeño.</p>
-      <p>Hablamos indudablemente también de un componente de liderazgo profesional, siendo imprescindible dotarlos de formación específica en gestión de personas, así como de herramientas objetivas y criterios claros de evaluación y dirección.</p>
-      <p>Desde PERIPLO-Función Pública queremos, a través de un debate sosegado y la consolidación de foros y equipos de trabajo, ofrecer propuestas encaminadas a la relegitimación social de la función pública, y ese camino transcurre necesariamente por afrontar este tipo de debates.</p>
-    </div>
-
-    <div class="article-actions">
-      <button class="read-more-btn" id="btn-1" onclick="toggleArticle('1')">Leer artículo completo ↓</button>
-      <div class="share-bar">
-        <span class="share-label">Compartir</span>
-        <a class="share-btn" target="_blank" rel="noopener"
-           href="https://wa.me/?text=%22Los%20funcionarios%20son%20unos%20vagos%22%20%E2%80%94%20Periplo%0Ahttps%3A%2F%2Fperiplo.es%2Farticulos.html">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </a>
-        <a class="share-btn" target="_blank" rel="noopener"
-           href="https://twitter.com/intent/tweet?text=%22Los%20funcionarios%20son%20unos%20vagos%22%20%E2%80%94%20Periplo&url=https%3A%2F%2Fperiplo.es%2Farticulos.html">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X
-        </a>
-        <a class="share-btn" target="_blank" rel="noopener"
-           href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fperiplo.es%2Farticulos.html">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <button class="share-btn" onclick="copyLink(this)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-          Copiar enlace
-        </button>
+    <h2>El PRTR o la burocracia desbordada: anatomía de una caída</h2>
+    <div class="article-body">
+      <p>El Plan de Recuperación español va camino de convertirse en el mayor estímulo al consumo y al lobby de la consultoría que ha conocido este país, disfrazado de transformación productiva. Cinco años después de que se aprobara el programa NextGenerationEU, lo que iba a ser la palanca definitiva para modernizar el tejido industrial corre el riesgo de pasar a la historia como un nuevo «Plan E», esta vez con barniz verde y digital. La peculiaridad es que la factura de los proyectos fallidos la pagarán las generaciones futuras vía deuda pública. Conviene explicar por qué.</p>
+      <p>España se convirtió en uno de los principales receptores de este Mecanismo de Recuperación, con un plan que llegó a contemplar hasta 163.000 millones de euros entre créditos y transferencias. Sin embargo, la prueba del fallo estructural arranca en el propio diseño del plan. La elección del modelo de hitos y objetivos imponía, en teoría, una rigurosa rendición de cuentas: Bruselas pagaba por resultados certificados, no por gasto ejecutado. Pero esa exigencia, trasladada sin anestesia al rígido entramado administrativo español, devino en una camisa de fuerza. Sometida a plazos estrictos y a una proliferación de controles, la Administración se vio maniatada por estructuras de personal insuficientes y una cultura institucional que prima evitar el error sobre la agilidad.</p>
+      <div class="article-expand" id="expand-prtr">
+        <p>La propia Comisión Europea acabó asumiendo el problema. En junio de 2025 instó a los Estados a simplificar los planes para maximizar la absorción antes del límite de agosto de 2026. España respondió a final de año con una Adenda de Simplificación que reformuló unas 160 medidas. Que la solución llegara cinco años después del arranque del plan evidencia que los ministerios marcaron originalmente unos objetivos a la ligera y completamente sobredimensionados.</p>
+        <p>Frente a esta Administración desbordada, el sistema reaccionó construyendo una estructura paralela. Las grandes firmas de servicios profesionales se instalaron en los ministerios vía contratos de asistencia técnica. Estos contratos no son inversiones: son el coste de suplir la capacidad que el Estado no tenía o no quiso construir. La paradoja es crítica: el dinero europeo que debía transformar el modelo productivo ha servido, en buena parte, para financiar el modelo de gestión que impide esa transformación.</p>
+        <p>Junto a las consultoras privadas, los «medios propios» —entidades públicas como Tragsa, Segipsa o Ineco— operaron como el otro gran cauce. El recurso sistemático a estos encargos directos, sin licitación, permitió eludir los tiempos del mercado, rozando con frecuencia los límites de la legalidad por la naturaleza de los trabajos encomendados. Además, estas corporaciones, saturadas, subcontrataron proyectos con empresas privadas hasta el tope del 50% permitido por ley. Bajo este esquema, actuaron como meros intermediarios financieros: la Administración les pagaba la tarifa oficial, ellos subcontrataron a un tercero y cobraban al Estado un recargo por costes de gestión, encareciendo artificialmente todo el proceso. Se llegó a situaciones tan delicadas donde un mismo medio propio asistía en la evaluación de las ayudas y, a la vez, era contratado por los beneficiarios para ejecutarlas, bajo la excusa de que, al ser entidades grandes, se trataba de «unidades diferentes».</p>
+        <p>A este ecosistema se sumaron paradojas contables como la del IVA. La normativa europea lo excluye como gasto financiable, pero en España la mayoría de subvenciones al sector público se concedieron por el importe total, IVA incluido, asumiendo que para estas entidades no es deducible. El resultado es un desajuste presupuestario silencioso: ese IVA que Bruselas no financia podría constituir gasto nacional adicional.</p>
+        <p>Esta arquitectura sobredimensionada convirtió la gestión en un laberinto lento y costoso. La jerga generada lo dice todo: CoFFEE, SNCA, DNSH, etiquetado digital, subproyectos instrumentales… Cuando hace falta un glosario para gestionar el dinero, se pierde más tiempo en justificarlo que en ejecutarlo.</p>
+        <p>Toda esta asfixia metodológica se trasladó al terreno. Ante la prisa por cumplir los plazos de Bruselas, se activó un incentivo perverso: preferir proyectos pequeños, rápidos y de fácil justificación —instalar paneles solares en polideportivos o digitalizar procesos que ya eran digitales— frente a las grandes inversiones industriales prioritarias. A esto se suma el drama fiscal de las ejecuciones parciales. Europa no financia obras a medias; si un ayuntamiento ejecuta el 70% de un proyecto y este se detiene, el coste recae íntegramente en el Estado. La fragmentación de las convocatorias en miles de pequeños proyectos multiplicó este riesgo exponencialmente.</p>
+        <p><strong>Mirando al futuro</strong></p>
+        <p>Las lecciones son claras, aunque extrañamente difíciles de aplicar. Primero, la capacidad de gestión es anterior a la captación de fondos: antes de pedir, hay que analizar los recursos que se tienen. No obstante, cabe resaltar que las unidades que tramitaban tradicionalmente subvenciones —como los Organismos Públicos de Investigación adscritos al Ministerio de Ciencia— sí fueron capaces de gestionar sus líneas de ayudas con un grado satisfactorio de ejecución.</p>
+        <p>Segundo, la estabilidad directiva importa. La gestión del PRTR ha consumido varios equipos de coordinadores en ministerios clave, y esa rotación generó una pérdida de memoria institucional y discontinuidades con Bruselas que se tradujeron en retrasos. A pesar de esto, hay que aplaudir a muchos funcionarios que, sin directrices claras de sus superiores y con cambios continuos, han logrado que Europa desembolsase el dinero o parte de él.</p>
+        <p>Tercero, la simplicidad de los instrumentos condiciona su eficacia. Los países que mejor han ejecutado sus planes son los que diseñaron convocatorias grandes, con pocos beneficiarios, criterios claros y ventanillas únicas. España eligió el modelo contrario: pusimos en marcha muchísimas subvenciones y convocatorias, con una enorme masa de beneficiarios, criterios complejos y una gestión fragmentada entre ministerios y comunidades autónomas. Es cierto que tenemos un Estado descentralizado y que, si bien el contenido de las líneas ha podido ser dudoso por dirigirse más al consumo que a la inversión, todo esto ha servido para dejar claro algo: con voluntad política, los órganos de cooperación funcionan. Así, las conferencias sectoriales han permitido territorializar los recursos. ¿Acaso en vuestro pueblo, o de camino a él, no habéis visto algún cartel que ponga Financiado con Fondos Europeos PRTR?</p>
+        <p>En definitiva, la conclusión es sombría para el contribuyente español, que asistirá a la paradoja de comprobar que la mayor inyección de fondos europeos jamás recibida ha servido, en buena parte, para financiarle el TPV al carnicero del mercado de abastos y para engordar la cuenta de resultados de un puñado de consultorías, ingenierías e intermediarios públicos. Y todo ello a cambio de un severo aumento de la deuda pública que pagarán, sin haber visto un solo céntimo, sus hijos y sus nietos.</p>
       </div>
     </div>
-  </div>
+    <div class="article-author">· PERIPLO-Función Pública</div>
+    <div class="article-footer">
+      <button class="btn-leer" onclick="toggleExpand('expand-prtr', this)">Leer artículo completo ↓</button>
+      <div class="share-group">
+        <span class="share-label">Compartir</span>
+        <a href="https://wa.me/?text=El%20PRTR%20o%20la%20burocracia%20desbordada%3A%20anatom%C3%ADa%20de%20una%20ca%C3%ADda%20%E2%80%94%20Periplo%0Ahttps%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://twitter.com/intent/tweet?text=El%20PRTR%20o%20la%20burocracia%20desbordada%3A%20anatom%C3%ADa%20de%20una%20ca%C3%ADda%20%E2%80%94%20Periplo&url=https%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="copy-btn" onclick="copiarEnlace(this, 'https://periplo.es/articulos.html')">Copiar enlace</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- ARTÍCULO 2: FUNCIONARIOS (EXISTENTE) -->
+  <article class="article" data-cat="estado">
+    <div class="article-area">Estado y administración</div>
+    <h2>"Los funcionarios son unos vagos"</h2>
+    <div class="article-body">
+      <p>La «burofobia» y la desconfianza hacia la función pública es una amenaza creciente que solo puede ser enfrentada si nos atrevemos a contrarrestar sus argumentos desde los hechos y la adopción de medidas concretas.</p>
+      <p>El objetivo de «lo público» debe ser la orientación al bien común. La función pública desempeña un papel crucial como contrapeso técnico frente a la discrecionalidad política. Los políticos fijan las prioridades y orientaciones —les exigimos que tomen decisiones y se responsabilicen de ellas, al menos en teoría— pero son los empleados públicos quienes aseguran la correcta ejecución de las políticas públicas, conforme a la legalidad vigente y con criterios de eficiencia. Esta dualidad, con sus inherentes tensiones, constituye una de las garantías de nuestro modelo de función pública: combinar legitimidad democrática con rigor técnico.</p>
+      <div class="article-expand" id="expand-funcionarios">
+        <p>La estabilidad en el empleo público es su garantía de independencia, no un privilegio. La profesionalización de los empleados públicos y la captación de talento es por ello crucial. Que las personas con mejores aptitudes y destrezas en sus respectivos campos decidan destinar su vida laboral a la cosa pública es algo que debería enorgullecernos como sociedad.</p>
+        <p>Es por ello que resulta especialmente hiriente la consolidación de un relato profundamente simplificador e injusto sobre los funcionarios públicos. Se les ha presentado de manera generalizada como trabajadores acomodados, privilegiados, poco productivos o ajenos a una verdadera exigencia profesional. Estos discursos ignoran la diversidad de las funciones desempeñadas por los empleados públicos. Médicos, jueces, policías, técnicos o administrativos, la función pública engloba un conjunto de perfiles cuya contribución resulta esencial. Reducir esta realidad a una caricatura de ineficiencia y apatía supone desconocer el esfuerzo diario de miles de profesionales que trabajan en muchas ocasiones bajo gran presión y con recursos cada vez más limitados.</p>
+        <p>Pero sin duda lo más amenazante es el peligro que supone para la propia calidad de la función pública la consolidación de estos relatos. Cuando se transmite la idea de que el empleo público es sinónimo de comodidad y falta de exigencia, se produce una distorsión de las motivaciones de quienes aspiran a él. En lugar de atraer a personas con verdadera vocación de servicio, preparación técnica y ambición profesional, corremos el riesgo de captar perfiles que buscan «tranquilidad» sin asumir plenamente las responsabilidades que les son propias.</p>
+        <p>Esta «deslegitimación social» de la función pública dificulta enormemente la captación de talento. En un entorno laboral privado cada vez más competitivo, el sector público no puede permitirse proyectar una imagen de mediocridad. La Administración necesita atraer a los mejores perfiles, especialmente en ámbitos estratégicos como la digitalización, la planificación urbana, o la innovación social. Para ello es imprescindible reivindicar el valor y la exigencia en la función pública.</p>
+        <p>Esto nos obliga también a una reflexión interna sobre los propios mecanismos de funcionamiento del Sector Público. La evaluación del desempeño se erige en este plano como una herramienta fundamental. Ya es obligatoria la evaluación anual del desempeño de los empleados públicos, pero su aplicación ha sido desigual, por no decir en muchos casos inexistente. Evaluar no es sancionar, sino gestionar de manera responsable los recursos humanos, identificar buenas prácticas y corregir ineficiencias.</p>
+        <p>Es necesaria una visión integral del problema: si hay alguien que no hace eficazmente su trabajo, no es sólo su responsabilidad sino también de su superior, al no realizar un correcto seguimiento del personal de su servicio y no adoptar las medidas necesarias para corregir la situación. De esta forma, los mandos intermedios desempeñan un papel clave. Son ellos quienes, por su proximidad a los equipos de trabajo y su conocimiento amplio sobre los procesos administrativos, pueden realizar una evaluación más ajustada y continua del desempeño.</p>
+        <p>Hablamos indudablemente también de un componente de liderazgo profesional, siendo imprescindible dotarlos de formación específica en gestión de personas, así como de herramientas objetivas y criterios claros de evaluación y dirección.</p>
+        <p>Desde PERIPLO-Función Pública queremos, a través de un debate sosegado y la consolidación de foros y equipos de trabajo, ofrecer propuestas encaminadas a la relegitimación social de la función pública, y ese camino transcurre necesariamente por afrontar este tipo de debates.</p>
+      </div>
+    </div>
+    <div class="article-author">· PERIPLO-Función Pública</div>
+    <div class="article-footer">
+      <button class="btn-leer" onclick="toggleExpand('expand-funcionarios', this)">Leer artículo completo ↓</button>
+      <div class="share-group">
+        <span class="share-label">Compartir</span>
+        <a href="https://wa.me/?text=%22Los%20funcionarios%20son%20unos%20vagos%22%20%E2%80%94%20Periplo%0Ahttps%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://twitter.com/intent/tweet?text=%22Los%20funcionarios%20son%20unos%20vagos%22%20%E2%80%94%20Periplo&url=https%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fperiplo.es%2Farticulos.html" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="copy-btn" onclick="copiarEnlace(this, 'https://periplo.es/articulos.html')">Copiar enlace</button>
+      </div>
+    </div>
+  </article>
 
 </div>
 
 <footer>
-  <a href="mailto:somosperiplo@gmail.com">somosperiplo@gmail.com</a><br><br>
+  <a href="mailto:somosperiplo@gmail.com">somosperiplo@gmail.com</a><br/><br/>
   © 2026 Periplo
 </footer>
 
 <script>
-  function toggleNav() {
-    document.getElementById('nav-links').classList.toggle('open');
+  function filtrar(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.article').forEach(a => {
+      a.style.display = (cat === 'todos' || a.dataset.cat === cat) ? '' : 'none';
+    });
   }
-  function toggleDropdown(id, e) {
-    if (window.innerWidth <= 700) {
-      e.preventDefault();
-      document.getElementById(id).classList.toggle('open');
-    }
+
+  function toggleExpand(id, btn) {
+    const el = document.getElementById(id);
+    const open = el.classList.toggle('open');
+    btn.textContent = open ? 'Cerrar artículo ↑' : 'Leer artículo completo ↓';
   }
+
+  function copiarEnlace(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '¡Copiado!';
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  }
+
   document.addEventListener('click', function(e) {
     if (!e.target.closest('nav')) {
       document.getElementById('nav-links').classList.remove('open');
     }
   });
-  function toggleArticle(id) {
-    const body = document.getElementById('body-' + id);
-    const btn = document.getElementById('btn-' + id);
-    const isOpen = body.style.display === 'block';
-    body.style.display = isOpen ? 'none' : 'block';
-    btn.textContent = isOpen ? 'Leer artículo completo ↓' : 'Cerrar ↑';
-  }
-  function filterArticles(area, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.article-card').forEach(card => {
-      card.style.display = (area === 'todos' || card.dataset.area === area) ? 'block' : 'none';
-    });
-  }
-  function copyLink(btn) {
-    navigator.clipboard.writeText('https://periplo.es/articulos.html').then(() => {
-      btn.classList.add('copied');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Copiar enlace';
-      }, 2000);
-    });
-  }
 </script>
-
 </body>
 </html>
